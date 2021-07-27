@@ -56,13 +56,9 @@ class downloader(QWidget):
         print(self.mp4.isChecked())
         
         try:
-            print("buraya geldim... 1")
 
             playlist = self.geturl()
-            print(playlist)
-            print("buraya geldim... 2")
             if self.mp3.isChecked():
-                print("buraya geldim... 3")
                 for num,url in enumerate(playlist,1):
                     video = pytube.YouTube(url,on_progress_callback=self.progress_funcmp3)
                     self.mp3streams = video.streams.get_audio_only(subtype="webm")
@@ -76,15 +72,9 @@ class downloader(QWidget):
                 self.playlistbilgi.setText("İndirme İşlemi Tamamlandı")
 
             elif self.mp4.isChecked():
-                print("buraya geldim... 4")
                 for num,url in enumerate(playlist,1):
-                    print("buraya geldim... 4.5")
                     self.video = pytube.YouTube(url,on_progress_callback=self.progress_funcmp4)
-                    print("buraya geldim... 5")
-                    print(self.video.streams)
-                    print("buraya geldim 5.5")
                     self.mp4streams = self.video.streams.get_highest_resolution()
-                    print("buraya geldim... 6")
                     self.mp4streams.download()
                     self.playlistbilgi.setText(f"{num}. dosya bitti.")
                 self.playlistbilgi.setText("İndirme İşlemi Tamamlandı")
@@ -92,7 +82,6 @@ class downloader(QWidget):
                 self.playlistbilgi.setText("Lütfen indirme formatı seçiniz!!!")
         except:
             self.playlistbilgi.setText("Geçerli Playlist URL'si giriniz son kod")
-            print("buraya geldim... 7")
             
 
 
