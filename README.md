@@ -1,6 +1,6 @@
 # pytube-PyQt5
 
-Python'da pytube ve PyQt5 kütüphanelerini kullanarak YouTube'dan playlist indirme programı.
+YouTube playlist indirme uygulaması.
 
 ![image](https://user-images.githubusercontent.com/65891055/127139988-f9ad4b6f-84d4-40cb-a247-ac3fcf94e086.png)
 
